@@ -42,3 +42,4 @@ next-env.d.ts
 # local file
 password.txt
 .env*.local
+mac_push.sh

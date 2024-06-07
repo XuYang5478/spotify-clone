@@ -1,11 +1,22 @@
 "use client";
 
+import useAuthModal from "@/hooks/useAuthModal";
+import useUploadModal from "@/hooks/useUploadModal";
+import { useUser } from "@/hooks/useUser";
 import { AiOutlinePlus } from "react-icons/ai";
 import { TbPlaylist } from "react-icons/tb";
 
 const Library = () => {
+  const authModal = useAuthModal();
+  const uploadModal = useUploadModal();
+  const {user}=useUser();
+
   const onAddClick = () => {
-    // 点击“添加列表”按钮时的动作
+    if(!user) {
+      authModal.onOpen();
+    }
+
+    return uploadModal.onOpen();
   }
 
   return (
